@@ -11,7 +11,7 @@
     <img src="https://i.imgur.com/RF2Zlgb.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Project Name</h3>
+  <h3 align="center">Hyrox Social Club</h3>
 
   <p align="center">
     Short project description or tagline.
