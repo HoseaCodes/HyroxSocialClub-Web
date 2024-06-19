@@ -41,26 +41,6 @@ const Landing = () => {
  <>
 
  <div>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
-        {/* Slick CSS */}
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-        {/* Swiper CSS */}
-        
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-        <title>Home</title>
         {/*--Header Section*/}
         <div className="header">
           <div className="wrap">
@@ -276,7 +256,7 @@ const Landing = () => {
               <h2 className="read-our-blog">Read Our Blog</h2>
             </div>
             <div className="img-fit">
-              <div className="fit1"><img className="fit-1" src="images/fit1.png" /><a className="sport">Sports &amp; Activity</a> <a className="good">Here's What a Good Walking Pace Looks Like for a Mile</a><a className="aiming">Aiming
+            <div className="fit1"><img className="fit-1" src="images/fit1.png" /><a className="sport">Sports &amp; Activity</a> <a className="good">Here&apos;s What a Good Walking Pace Looks Like for a Mile</a><a className="aiming">Aiming
                   for a mile a day is a great way to incorporate more walking into your regular exercise routine
                   and reap the health benefits.</a></div>
               <div className="fit1"><img className="fit-1" src="images/fit3.png" /><a className="sport">Sports &amp; Activity</a><a className="Tower">What Is Tower Running?</a><a className="aiming">This type of racing is the ultimate
@@ -293,7 +273,7 @@ const Landing = () => {
             <div className="download"><a href="#" className="btn-download">Download</a>
               <h2 className="stay">Wherever You Go Stay with Us!</h2>
               <p className="lore">Lorem Ipsum&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the industry's standard dummy text ever since the 1500s,
+                has been the industry&apos;s standard dummy text ever since the 1500s,
                 when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
                 survived not only five centuries,</p>
               <div className="social"><img className="apple" src="images/apple.png" />
