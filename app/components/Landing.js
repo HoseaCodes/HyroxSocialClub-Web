@@ -38,287 +38,323 @@ const Landing = () => {
     setCurrentSlide((currentSlide - 1 + testimonials.length) % testimonials.length);
   };
   return (
- <>
-
- <div>
-        {/*--Header Section*/}
-        <div className="header">
-          <div className="wrap">
-            <div className="nav-left"><a href="#"><img className="image" src="images/hyrox-logo.png" /></a></div>
-            <div className="nav-right">
-              <ul>
-                <li><a className="link" href="#">Home</a></li>
-                <li><a className="link" href="#">About</a></li>
-                <li><a className="link" href="#">Community</a></li>
-                <li><a className="link" href="#">Download</a></li>
-                <li><a className="link" href="#">Blog</a></li>
-              </ul>
-            </div>
-            <a href="#" className="btn-header">Join Now</a>
+    <>
+    {/* header Start */}
+    <header>
+      <div className="section-forheader wrapper">
+        <div className="main-row-of-header">
+          <div className="logo-sec">
+            <img src="css/imgae/images-removebg-preview.png" />
+          </div>
+          <div className="navbar">
+            <ul>
+              <a href="#">
+                <li>Home</li>
+              </a>
+              <li>About</li>
+              <li>Community</li>
+              <li>Download</li>
+              <li>Blog</li>
+            </ul>
+          </div>
+          <div>
+            <button className="nav-button">Join Now</button>
           </div>
         </div>
-        {/*--Header Section End*/}
-        {/*banner*/}
-        <div className="banner">
-          <div className="header-section">
-            <span className="bg"><img className="img2" src="images/shoulder.png" /> </span><a className="fitness">Fitness and
-              Training Club App</a>
-          </div>
-          <div className="header-text">
-            <h1 className="text">Training For Every Body and Mind</h1>
-          </div>
-          <div className="tx-btn"> <a href="#" className="btn-header-text">Get Started</a></div>
-          <div className="img-mobile"><img className="mobile" src="images/mobile.PNG" /> </div>
-        </div>
-        {/*end banner*/}
-        {/*-Our Feature*/}
-        <div className="feature">
-          <div className="wrap">
-            <a href="#" className="btn-feature">OUR FEATURES</a>
-            <h2 className="progress">Track your progress, crush your goals, and reach a fitter you!</h2>
-          </div>
-          <div className="img-thumnail">
-            <div className="wrap">
-              <div className="video-container">
-                <div className="video-overlay" id="videoOverlay">
-                  <img src="images/thumbnail.png" alt="Overlay Image" className="overlay-image" />
-                  <a href="#" id="playButton" className="play-button"><img src="images/play-icon.png" /></a>
-                </div>
-                <iframe id="youtubeVideo" src="https://www.youtube.com/embed/9xwazD5SyVg" title="Dummy Video For YouTube API Test" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
-              </div>
-              <h2 className="lato">Key features that propel your fitness journey.</h2>
-              <div className="box">
-                <div className="box-item">
-                  <div className="box-size">
-                    <img src="images/equipment.png" className="color" />
-                    <a className="content">Gym planner and logger</a>
-                    <p id="dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                  </div>
-                </div>
-                <div className="box-item">
-                  <div className="box-size">
-                    <img src="images/Group (4).png" className="color" />
-                    <a className="content">Food intake tracker</a>
-                    <p id="dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                  </div>
-                </div>
-                <div className="box-item">
-                  <div className="box-size">
-                    <img src="images/Vector.png" className="color" />
-                    <a className="content">Track macros</a>
-                    <p id="dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                  </div>
-                </div>
-                <div className="box-item">
-                  <div className="box-size">
-                    <img src="images/Group (1).png" className="color" />
-                    <a className="content">Fasting</a>
-                    <p id="dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                  </div>
-                </div>
-                <div className="box-item">
-                  <div className="box-size">
-                    <img src="images/Group (1).png" className="color" />
-                    <a className="content">Local Meal Prep</a>
-                    <p id="dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                  </div>
-                </div>
-                <div className="box-item">
-                  <div className="box-size">
-                    <img src="images/Group (2).png" className="color" />
-                    <a className="content">Fitness Analytics</a>
-                    <p id="dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                  </div>
-                </div>
-                <div className="box-item">
-                  <div className="box-size">
-                    <img src="images/Group (3).png" className="color" />
-                    <a className="content">Fitness Programs</a>
-                    <p id="dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                  </div>
-                </div>
-                <div className="box-item">
-                  <div className="box-size">
-                    <img src="images/Group (4).png" className="color" />
-                    <a className="content">Integrated With Apple Watch fitness metrics</a>
-                    <p id="dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                  </div>
-                </div>
-                <div className="box-item">
-                  <div className="box-size">
-                    <img src="images/Group (5).png" className="color" />
-                    <a className="content">Sleep Insights</a>
-                    <p id="dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/*end feature*/}
-            {/*How to Start*/}
+      </div>
+    </header>
+    {/* header End */}
+    {/* header for mobile and tab 769px Start */}
+    <header>
+      <div className="hamburger-menu">
+        <div className="bar" />
+      </div>
+      <nav className="mobile-menu">
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li className="has-children">
+            About <span />
+          </li>
+          <li>
+            <a href="contact.html">Community</a>
+          </li>
+          <li>
+            <a href="contact.html">Download</a>
+          </li>
+          <li>
+            <a href="blog.html">Blog</a>
+          </li>
+        </ul>
+      </nav>
+      <div className="humb-img">
+        <img src="css/imgae/images-removebg-preview.png" />
+      </div>
+    </header>
+    {/* header for mobile and tab 769px End */}
+    {/* Section For Hero Banner  Start */}
+    <section className="section-for-hero-banner">
+      <div className="main-rowfff">
+        <div className="firstdiv">
+          <div className="andiv">
+            <img src="css/imgae/b983f04dcdebee988cae1db8b3665d36.jpg" className="shoulder" />
+            <h4>Fitness and Traning Club App</h4>
           </div>
         </div>
-        <div className="black">
-          <div className="wrap">
-            <div className="start"> <a href="#" className="btn-download">How to start</a>
-              <p className="get">Getting Started is Simple!</p>
-              <p className="easy">Easy step to start your workout.</p>
-            </div>
-            <div className="images-flex">
-              <div className="img-1"> <img id="img1" src="images/play.png" />
-                <h2 id="app">Download The App</h2>
-                <h2 id="download">You can download the App from App Store or Google Play Store</h2>
+        <h1>
+          Training For Every Body
+          <br /> and Mind
+        </h1>
+        <button className="btn"> Get Started</button>
+        <div className="div-img-hb">
+          <img src="css/imgae/Screenshot_21.png" />
+        </div>
+      </div>
+    </section>
+    {/* Section For Hero Banner  End */}
+    {/* Section For Features Start  */}
+    <section className="main-section-for-features wrapper">
+      <div className="main-row-for-features">
+        <button className="feature-btn"> Our Features</button>
+        <h1>
+          Track yout progress, crush your goals,
+          <br /> and reach a fitter you!
+        </h1>
+        <img src="css/imgae/Screenshot_1.png" />
+        <div className="text-f">
+          <h3>
+            Key features that propel your
+            <br /> fitness journey{" "}
+          </h3>
+          <img src="css/imgae/Rectangle 34625161.png" />
+        </div>
+        <div className="tow-images">
+          <div className="ff-image">
+            <img src="css/imgae/Rectangle 34625163.png" />
+            <h3>Lorem ipsum dolor sit amet.</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+              tempora eligendi ad impedit hic facere maxime veritatis vero
+              inventore numquam.Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Placeat tempora eligendi ad impedit hic facere maxime
+              veritatis vero inventore numquam.
+            </p>
+          </div>
+          <div className="fs-image">
+            <img src="css/imgae/Rectangle 34625164.png" />
+            <h3>Lorem ipsum dolor sit amet.</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+              tempora eligendi ad impedit hic facere maxime veritatis vero
+              inventore numquam.Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Placeat tempora eligendi ad impedit hic facere maxime
+              veritatis vero inventore numquam.
+            </p>
+          </div>
+        </div>
+        <div className="three-images">
+          <div className="ftfimage">
+            <img src="https://images.unsplash.com/photo-1658557435945-ce41a396639f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fGJvZHlidWlsZGVyc3xlbnwwfHwwfHx8MA%3D%3D" />
+            <h2>Tara Nicolas</h2>
+            <p>
+              No matter where you're starting, NTC's worldwide Community of fun,
+              approachable trainers
+            </p>
+            <div className="texthover">
+              <div className="hoverft">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
+                tempore incidunt commodi, quo quibusdam officia?
               </div>
-              <div className="img-2">
-                <img id="img1" src="images/hello.png" />
-                <h2 id="app">Create and Personalized</h2>
-                <h2 id="download">Create your account and start personalized you preferences!</h2>
-              </div>
-              <div className="img-3">
-                <img id="img1" src="images/activity.png" />
-                <h2 id="app">Start Your Workout!</h2>
-                <h2 id="download">Choose the workout based on your preferences.e</h2>
-              </div>
-              <div className="img-4">
-                <img id="img1" src="images/complete.png" />
-                <h2 id="app">Analyze and Repeat!</h2>
-                <h2 id="download">Gain valuable insights into your progress and performance.</h2>
+              <div className="hoverst">
+                <h2>Xochilt Hoover</h2>
+                <p>Lorem, ipsum.</p>
               </div>
             </div>
           </div>
-        </div>
-        {/*end how to start*/}
-        {/*Test Monial*/}
-        <div className="test-monials">
-          <div className="wrap">
-            <div className="our-feature">
-              <a href="#" className="btn-features">OUR FEATURES</a>
-            </div>
-            <div className="matter">
-              <p className="our-trainer">Our Trainers Meet You <br />Where You’re At</p>
-              <a className="no-mater">No matter where you’re starting,
-                NTC’s worldwide community of fun,
-                approachable trainers can help guide you to where you’re headed.
-                After all, an app can help you work out, but it’s the people who help you show up.</a>
-            </div>
-            <div className="images-testmonial">
-              <div className="test-1">
-                <img className="test-monials1" src="images/tara.png" />
-                <a className="tara">Tara Nicolas </a>
-                <a className="tara">Lorem Ipsum </a>
+          <div className="ftsimage">
+            <img src="https://images.unsplash.com/photo-1667890787288-ecaaa4bc6994?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzZ8fGJvZHlidWlsZGVyc3xlbnwwfHwwfHx8MA%3D%3D" />
+            <h2>Tara Nicolas</h2>
+            <p>
+              No matter where you're starting, NTC's worldwide Community of fun,
+              approachable trainers
+            </p>
+            <div className="texthover">
+              <div className="hoverft">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
+                tempore incidunt commodi, quo quibusdam officia?
               </div>
-              <div className="test-2"><img className="test-monials1" src="images/jonah.png" /> <a className="tara">Jonah Kest </a>
-                <a className="tara">Lorem Ipsum </a>
-              </div>
-              <div className="test-3"><img className="test-monials1" src="images/alex.png" /> <a className="tara">Alex Piccilli </a>
-                <a className="tara">Lorem Ipsum </a>
-              </div>
-              <div className="test-4"><img className="test-monials1" src="images/hover.png" /> <a className="tara">Xochilt Hoover </a>
-                <a href="#" className="btn-header-view">View more</a>
+              <div className="hoverst">
+                <h2>Xochilt Hoover</h2>
+                <p>Lorem, ipsum.</p>
               </div>
             </div>
           </div>
-        </div>
-        {/*end Test Monial*/}
-        {/* Blog */}
-        {/* Blog */}
-        <div className="blog">
-      <div className="testimonials">
-        <div className="wrap">
-          <div className="gym">
-            <img className="fit" src="images/fitness.png" alt="Fitness Icon" />
-            <div className="swiper-horizontals">
-              <div className="small">❝</div>
-              <div className="slider">
-                <div className="slide">
-                  <div className="arrow">
-                    <p>{testimonials[currentSlide].text}</p>
-                    <StarRating rating={testimonials[currentSlide].stars} />
-                  </div>
-                  <h2 className="name">Sarah J.</h2>
-                </div>
+          <div className="fttimage">
+            <img src="https://images.unsplash.com/photo-1639496904311-93119bb81a36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fGJvZHlidWlsZGVyc3xlbnwwfHwwfHx8MA%3D%3D" />
+            <h2>Tara Nicolas</h2>
+            <p>
+              No matter where you're starting, NTC's worldwide Community of fun,
+              approachable trainers
+            </p>
+            <div className="texthover">
+              <div className="hoverft">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
+                tempore incidunt commodi, quo quibusdam officia?
               </div>
-              <div className="controls">
-              <button className="prev" onClick={prevSlide}>→</button>
-              <button className="next" onClick={nextSlide}>←</button>
+              <div className="hoverst">
+                <h2>Xochilt Hoover</h2>
+                <p>Lorem, ipsum.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+    {/* Section For Features End  */}
+    {/* Section For Review Start  */}
+    <section className="section-for-review ">
+      <div className="main-rowof-review-section wrapper">
+        <div className="innerrowofreview">
+          <div className="first-colum-ofreview">
+            <img src="css/imgae/Screenshot_3.png" />
+          </div>
+          <div className="sec-colum-ofreview">
+            <h1>
+              Since Using Pulse, I've Seen Remarkable Improvements In My Fitness
+              Levels. Highly Recommended
+            </h1>
+            <p>Sarah J.</p>
+            <div className="rankings">
+              <div className="stars">
+                <span className="fa fa-star checked" />
+                <span className="fa fa-star checked" />
+                <span className="fa fa-star checked" />
+                <span className="fa fa-star checked" />
+                <span className="fa fa-star unchecked" />
+              </div>
+              <div className="rankingtext">
+                4.2 <span className="rrr">Rated on</span>{" "}
+                <span className="appstorerr"> App Store</span>
+              </div>
+            </div>
+            <div className="rowrankindicons"></div>
+          </div>
+        </div>
       </div>
-        {/* End Blog */}
-        {/*read blog*/}~
-        <div className="our-blog">
-          <div className="wrap">
-            <div className="new-btn">
-              <h2 href="#" className="btn-blog">Our Blog</h2>
-              <h2 className="read-our-blog">Read Our Blog</h2>
-            </div>
-            <div className="img-fit">
-            <div className="fit1"><img className="fit-1" src="images/fit1.png" /><a className="sport">Sports &amp; Activity</a> <a className="good">Here&apos;s What a Good Walking Pace Looks Like for a Mile</a><a className="aiming">Aiming
-                  for a mile a day is a great way to incorporate more walking into your regular exercise routine
-                  and reap the health benefits.</a></div>
-              <div className="fit1"><img className="fit-1" src="images/fit3.png" /><a className="sport">Sports &amp; Activity</a><a className="Tower">What Is Tower Running?</a><a className="aiming">This type of racing is the ultimate
-                  uphill battle.</a> <h2 href="#" className="btn-read">View More</h2></div>
-              <div className="fit1"><img className="fit-1" src="images/fit2.png" /> <a className="sport">Sports &amp; Activity</a> <a className="over"> What Is Overtraining Syndrome — And How Can You Avoid It?</a><a className="aiming">Learn the signs and symptoms of overdoing exercise — and ways to prevent it from
-                  happening in the first place.</a></div>
-            </div>
+    </section>
+    {/* Section For Review End  */}
+    {/* Section For Blogs Start */}
+    <section className="section-for-blogs wrapper">
+      <div className="main-row-for-blog-section">
+        <button className="feature-btn leftrp"> Our Blog</button>
+        <h1>Read Our Blog</h1>
+        <div className="threeblogsinrow">
+          <div className="firstblog">
+            <img src="css/imgae/Screenshot_4.png" />
+            <p>Sports &amp; Activity</p>
+            <h2>Here's What A Good Walking Pace Looks Like For A Mile</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam
+              quibusdam nostrum, labore debitis corporis, esse inventore, unde
+              aperiam consectetur dolores ratione omnis consequuntur atque.
+            </p>
+          </div>
+          <div className="secblog">
+            <img src="css/imgae/Screenshot_5.png" />
+            <p>Sports &amp; Activity</p>
+            <h2>Here's What A Good Walking </h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus!
+            </p>
+          </div>
+          <div className="thirdblog">
+            <img src="css/imgae/Screenshot_6.png" />
+            <p>Sports &amp; Activity</p>
+            <h2>Here's What A Good Walking Pace Looks Like For A Mile</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem cum
+              perferendis voluptate labore magnam sint, architecto maiores
+              recusandae facilis pariatur totam.
+            </p>
           </div>
         </div>
-        {/*end read blog*/}
-        {/*-footer*/}
-        <div className="footer">
-          <div className="wrap">
-            <div className="download"><a href="#" className="btn-download">Download</a>
-              <h2 className="stay">Wherever You Go Stay with Us!</h2>
-              <p className="lore">Lorem Ipsum&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the industry&apos;s standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries,</p>
-              <div className="social"><img className="apple" src="images/apple.png" />
-                <img className="play" src="images/playstore.png" />
-              </div>
-            </div>
-            <div className="left"><img className="leftside" src="images/2mobile.png" /> </div>
+        <button className="btn rightbtndown"> View More</button>
+      </div>
+    </section>
+    {/* Section For Blogs End */}
+    {/* Section For Footer Start  */}
+    <footer>
+      <section className="section-for-footer wrapper">
+        <div className="main-row-for-footer">
+          <div className="first-clom-footer">
+            <button className="feature-btn leftrp footerbtn">Download</button>
+            <h1>Wherever You Go Stay With Us!</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+              id provident fugiat reprehenderit nemo incidunt eos est optio dolore
+              tempora. Tenetur minima amet dignissimos nisi doloremque dolorem
+              rerum laboriosam? Sapiente, nam? Repudiandae soluta corporis
+              officiis dignissimos amet doloribus minus cumque doloremque sint
+              quibusdam assumenda, iure ut, reiciendis recusandae nostrum vel.
+            </p>
+            <img src="css/imgae/Screenshot_8.png" />
+          </div>
+          <div className="sec-clom-footer">
+            {" "}
+            <img src="css/imgae/Screenshot_7.png" />
           </div>
         </div>
-        <div className="foot">
-          <div className="wrap">
-            <div className="top-footer">
-              <div className="nav-left"><a href="#"><img className="image" src="images/hyrox-logo.png" /></a></div>
-              <div className="nav-right">
-                <ul>
-                  <li><a className="link" href="#">Home</a></li>
-                  <li><a className="link" href="#">About</a></li>
-                  <li><a className="link" href="#">Community</a></li>
-                  <li><a className="link" href="#">Download</a></li>
-                  <li><a className="link" href="#">Blog</a></li>
-                </ul>
-              </div>
-              <div className="social-icons">
-                <a href="https://www.facebook.com" target="_blank" className="social-icon"><i className="fab fa-facebook-f" /></a>
-                <a href="https://www.twitter.com" target="_blank" className="social-icon"><i className="fab fa-twitter" /></a>
-                <a href="https://www.instagram.com" target="_blank" className="social-icon"><i className="fab fa-instagram" /></a>
-              </div>
-            </div>
-            <hr />
-            <div className="bottom">
-              <div className="left-side">
-                © 2024 Hyrox Social Club
-              </div>
-              <div className="right-side">
-                <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-of-service">Terms of Service</a>
-              </div>
-            </div>
+      </section>
+    </footer>
+    {/* Section For Footer End  */}
+    {/* last section for footer start  */}
+    <section className="section-for-footer-lastmanu wrapper">
+      <div className="main-row-oflast-section-footer">
+        <div className="main-row-of-header-last-sec">
+          <div className="logo-sec">
+            <img src="css/imgae/images-removebg-preview.png" />
+          </div>
+          <div className="navbar">
+            <ul>
+              <a href="#">
+                <li>Home</li>
+              </a>
+              <li>About</li>
+              <li>Community</li>
+              <li>Download</li>
+              <li>Blog</li>
+            </ul>
+          </div>
+          <div className="lastmenufot">
+            {" "}
+            <img src="css/imgae/facebook-circle-fill.png" />{" "}
+            <img src="css/imgae/twitter-fill.png" />{" "}
+            <img src="css/imgae/instagram-fill(1).png" />
           </div>
         </div>
-        {/*end footer*/}
-        {/* Swiper JS */}
-        {/* End Blog */}
-      
- </>
-
+      </div>
+    </section>
+    {/* last section for footer End  */}
+    {/* copyright section start  */}
+    <section className="copyrightsection wrapper">
+      <div className="main-row-for-copyright-section">
+        <div className="first-colm-copyright">
+          <h5>2024 Hyrox Social Club</h5>
+        </div>
+        <div className="sec-colm-copyright">
+          <div className="in-f-c">
+            <h5>Privacy Policy</h5>
+          </div>
+          <div className="in-s-c">
+            <h5>Term of Conditions</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* copyright section End  */}
+  </>
+  
 
   )
 }
