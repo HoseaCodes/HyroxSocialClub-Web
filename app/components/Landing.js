@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import StarRating from "./StarRating";
-
+import NavBar from "./navigation";
 
 
 const Landing = () => {
@@ -39,60 +39,7 @@ const Landing = () => {
   };
   return (
     <>
-      {/* header Start */}
-      <header>
-        <div className="section-forheader wrapper">
-          <div className="main-row-of-header">
-            <div className="logo-sec">
-              <img src="css/imgae/images-removebg-preview.png" />
-            </div>
-            <div className="navbar">
-              <ul>
-                <a href="#">
-                  <li>Home</li>
-                </a>
-                <li>About</li>
-                <li>Community</li>
-                <li>Download</li>
-                <li>Blog</li>
-              </ul>
-            </div>
-            <div>
-              <button className="nav-button">Join Now</button>
-            </div>
-          </div>
-        </div>
-      </header>
-      {/* header End */}
-      {/* header for mobile and tab 769px Start */}
-      <header>
-        <div className="hamburger-menu">
-          <div className="bar" />
-        </div>
-        <nav className="mobile-menu">
-          <ul>
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-            <li className="has-children">
-              About <span />
-            </li>
-            <li>
-              <a href="contact.html">Community</a>
-            </li>
-            <li>
-              <a href="contact.html">Download</a>
-            </li>
-            <li>
-              <a href="blog.html">Blog</a>
-            </li>
-          </ul>
-        </nav>
-        <div className="humb-img">
-          <img src="css/imgae/images-removebg-preview.png" />
-        </div>
-      </header>
-      {/* header for mobile and tab 769px End */}
+      <NavBar />
       {/* Section For Hero Banner  Start */}
       <section className="section-for-hero-banner">
         <div className="main-rowfff">
