@@ -4,6 +4,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Terminal, XCircle, AlertCircle, Download, Pause, Play } from 'lucide-react';
 
+const WS_URL = process.env.NODE_ENV === 'production'
+  ? 'wss://log-websocket-918cf29961a3.herokuapp.com'
+  : 'ws://localhost:5003';
+
 function LogViewer() {
   const [logs, setLogs] = useState([]);
   const [isConnected, setIsConnected] = useState(false);
@@ -56,8 +60,9 @@ function LogViewer() {
   }, [filteredLogs, isPaused]);
 
   // Connect to WebSocket
-  const connectWebSocket = () => {
-    ws.current = new WebSocket('ws://localhost:5003');
+   const connectWebSocket = () => {
+    console.log('Connecting to WebSocket:', WS_URL); // Debug log
+    ws.current = new WebSocket(WS_URL);
     
     ws.current.onopen = () => {
       setIsConnected(true);
