@@ -125,55 +125,59 @@ function LogViewer() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-4">
+    <div className="w-full max-w-6xl mx-auto p-2 sm:p-4">
       <div className="bg-gray-900 rounded-lg shadow-lg overflow-hidden">
         {/* Header */}
-        <div className="bg-gray-800 px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Terminal className="text-gray-400" size={20} />
-            <h2 className="text-gray-200 font-semibold">PhysiquePro-Ai Logs</h2>
-            <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-500' : 'bg-red-500'}`} />
-          </div>
-          
-          <div className="flex items-center space-x-4">
-            {/* Filter dropdown */}
-            <select
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-              className="bg-gray-700 text-gray-200 rounded px-2 py-1 text-sm"
-            >
-              <option value="all">All Logs</option>
-              <option value="error">Errors</option>
-              <option value="warn">Warnings</option>
-              <option value="info">Info</option>
-            </select>
-
-            {/* Control buttons */}
-            <button
-              onClick={togglePause}
-              className="text-gray-400 hover:text-gray-200"
-              title={isPaused ? "Resume" : "Pause"}
-            >
-              {isPaused ? <Play size={20} /> : <Pause size={20} />}
-            </button>
-
-            <button
-              onClick={downloadLogs}
-              className="text-gray-400 hover:text-gray-200"
-              title="Download Logs"
-            >
-              <Download size={20} />
-            </button>
+        <div className="bg-gray-800 px-2 sm:px-4 py-2 sm:py-3">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
+            <div className="flex items-center space-x-2">
+              <Terminal className="text-gray-400" size={18} />
+              <h2 className="text-gray-200 font-semibold text-sm sm:text-base">PhysiquePro-Ai Logs</h2>
+              <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-500' : 'bg-red-500'}`} />
+            </div>
+            
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              {/* Filter dropdown */}
+              <select
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                className="bg-gray-700 text-gray-200 rounded px-2 py-1 text-xs sm:text-sm flex-grow sm:flex-grow-0"
+              >
+                <option value="all">All Logs</option>
+                <option value="error">Errors</option>
+                <option value="warn">Warnings</option>
+                <option value="info">Info</option>
+              </select>
+  
+              {/* Control buttons */}
+              <div className="flex space-x-2 sm:space-x-4">
+                <button
+                  onClick={togglePause}
+                  className="text-gray-400 hover:text-gray-200 p-1"
+                  title={isPaused ? "Resume" : "Pause"}
+                >
+                  {isPaused ? <Play size={18} /> : <Pause size={18} />}
+                </button>
+  
+                <button
+                  onClick={downloadLogs}
+                  className="text-gray-400 hover:text-gray-200 p-1"
+                  title="Download Logs"
+                >
+                  <Download size={18} />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-
+  
         {/* Log Container */}
         <div 
           ref={logContainerRef}
-          className="bg-gray-950 p-4 h-[600px] overflow-y-auto font-mono text-sm"
+          className="bg-gray-950 p-2 sm:p-4 h-[400px] sm:h-[600px] overflow-y-auto font-mono text-xs sm:text-sm"
         >
           {filteredLogs.length === 0 ? (
-            <div className="text-gray-500 text-center mt-32">
+            <div className="text-gray-500 text-center mt-16 sm:mt-32 text-sm">
               No logs available. Click &quot;Start Streaming&quot; to begin.
             </div>
           ) : (
@@ -182,41 +186,43 @@ function LogViewer() {
               return (
                 <div 
                   key={index} 
-                  className={`${color} flex items-start space-x-2 mb-1 hover:bg-gray-900 p-1 rounded`}
+                  className={`${color} flex items-start space-x-2 mb-1 hover:bg-gray-900 p-1 rounded break-all`}
                 >
-                  <span className="mt-1">{icon}</span>
+                  <span className="mt-1 flex-shrink-0">{icon}</span>
                   <span className="whitespace-pre-wrap">{log}</span>
                 </div>
               );
             })
           )}
         </div>
-
+  
         {/* Footer */}
-        <div className="bg-gray-800 px-4 py-3 flex justify-between items-center">
-          <button
-            onClick={() => {
-              if (!isConnected) connectWebSocket();
-            }}
-            disabled={isConnected}
-            className={`px-4 py-2 rounded-md text-sm font-medium ${
-              isConnected 
-                ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
-                : 'bg-blue-600 hover:bg-blue-700 text-white'
-            }`}
-          >
-            {isConnected ? 'Connected' : 'Start Streaming'}
-          </button>
-          
-          {error && (
-            <div className="flex items-center space-x-2 text-red-500 text-sm">
-              <XCircle size={16} />
-              <span>Error: {error}</span>
+        <div className="bg-gray-800 px-2 sm:px-4 py-2 sm:py-3">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-2 sm:space-y-0">
+            <button
+              onClick={() => {
+                if (!isConnected) connectWebSocket();
+              }}
+              disabled={isConnected}
+              className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm font-medium w-full sm:w-auto ${
+                isConnected 
+                  ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                  : 'bg-blue-600 hover:bg-blue-700 text-white'
+              }`}
+            >
+              {isConnected ? 'Connected' : 'Start Streaming'}
+            </button>
+            
+            {error && (
+              <div className="flex items-center space-x-2 text-red-500 text-xs sm:text-sm w-full sm:w-auto">
+                <XCircle size={16} />
+                <span className="truncate">Error: {error}</span>
+              </div>
+            )}
+  
+            <div className="text-gray-400 text-xs sm:text-sm w-full sm:w-auto text-right">
+              {filteredLogs.length} logs {isPaused && '(Paused)'}
             </div>
-          )}
-
-          <div className="text-gray-400 text-sm">
-            {filteredLogs.length} logs {isPaused && '(Paused)'}
           </div>
         </div>
       </div>
