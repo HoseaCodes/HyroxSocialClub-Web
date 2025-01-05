@@ -2,9 +2,13 @@
 import { useState } from "react";
 import StarRating from "./StarRating";
 import NavBar from "./navigation";
+import CopyrightSection from "./CopyrightSection";
 
 
 const Landing = () => {
+  const year = new Date().getFullYear();
+  const clubName = 'Hyrox Social Club';
+  const links = ['Privacy Policy', 'Terms of Conditions'];
   const testimonials = [
     {
       text: "Since using Pulse, I’ve seen remarkable improvements in my fitness levels. Highly recommend",
@@ -292,23 +296,7 @@ const Landing = () => {
         </div>
       </section>
       {/* last section for footer End  */}
-      {/* copyright section start  */}
-      <section className="copyrightsection wrapper">
-        <div className="main-row-for-copyright-section">
-          <div className="first-colm-copyright">
-            <h5>2024 Hyrox Social Club</h5>
-          </div>
-          <div className="sec-colm-copyright">
-            <div className="in-f-c">
-              <h5>Privacy Policy</h5>
-            </div>
-            <div className="in-s-c">
-              <h5>Term of Conditions</h5>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* copyright section End  */}
+      <CopyrightSection year={year} clubName={clubName} links={links} />
     </>
   );
 }
