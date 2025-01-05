@@ -2,9 +2,14 @@
 import { useState } from "react";
 import StarRating from "./StarRating";
 import NavBar from "./navigation";
+import CopyrightSection from "./CopyrightSection";
+import Footer from "./Footer";
 
 
 const Landing = () => {
+  const year = new Date().getFullYear();
+  const clubName = 'Hyrox Social Club';
+  const links = ['Privacy Policy', 'Terms of Conditions'];
   const testimonials = [
     {
       text: "Since using Pulse, I’ve seen remarkable improvements in my fitness levels. Highly recommend",
@@ -265,7 +270,8 @@ const Landing = () => {
       </footer>
       {/* Section For Footer End  */}
       {/* last section for footer start  */}
-      <section className="section-for-footer-lastmanu wrapper">
+      <Footer />
+      {/* <section className="section-for-footer-lastmanu wrapper">
         <div className="main-row-oflast-section-footer">
           <div className="main-row-of-header-last-sec">
             <div className="logo-sec">
@@ -278,7 +284,10 @@ const Landing = () => {
                 </a>
                 <li>About</li>
                 <li>Community</li>
-                <li>Download</li>
+                <a href="/docs">
+                  <li>Docs</li>
+                </a>
+                <li>Logs</li>
                 <li>Blog</li>
               </ul>
             </div>
@@ -290,25 +299,9 @@ const Landing = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* last section for footer End  */}
-      {/* copyright section start  */}
-      <section className="copyrightsection wrapper">
-        <div className="main-row-for-copyright-section">
-          <div className="first-colm-copyright">
-            <h5>2024 Hyrox Social Club</h5>
-          </div>
-          <div className="sec-colm-copyright">
-            <div className="in-f-c">
-              <h5>Privacy Policy</h5>
-            </div>
-            <div className="in-s-c">
-              <h5>Term of Conditions</h5>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* copyright section End  */}
+      <CopyrightSection year={year} clubName={clubName} links={links} />
     </>
   );
 }
