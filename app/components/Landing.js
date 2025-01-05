@@ -3,6 +3,7 @@ import { useState } from "react";
 import StarRating from "./StarRating";
 import NavBar from "./navigation";
 import CopyrightSection from "./CopyrightSection";
+import Footer from "./Footer";
 
 
 const Landing = () => {
@@ -269,7 +270,8 @@ const Landing = () => {
       </footer>
       {/* Section For Footer End  */}
       {/* last section for footer start  */}
-      <section className="section-for-footer-lastmanu wrapper">
+      <Footer />
+      {/* <section className="section-for-footer-lastmanu wrapper">
         <div className="main-row-oflast-section-footer">
           <div className="main-row-of-header-last-sec">
             <div className="logo-sec">
@@ -282,7 +284,10 @@ const Landing = () => {
                 </a>
                 <li>About</li>
                 <li>Community</li>
-                <li>Download</li>
+                <a href="/docs">
+                  <li>Docs</li>
+                </a>
+                <li>Logs</li>
                 <li>Blog</li>
               </ul>
             </div>
@@ -294,7 +299,7 @@ const Landing = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* last section for footer End  */}
       <CopyrightSection year={year} clubName={clubName} links={links} />
     </>
