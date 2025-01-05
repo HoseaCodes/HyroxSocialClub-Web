@@ -15,14 +15,5 @@
             "source": "/docs/(.*)",
             "destination": "/docs/dist/$1"
         }
-    ],
-    "routes": [
-        {
-            "src": "^/docs",
-            "dest": "/docs/dist/index.html",
-            "headers": {
-                "x-robots-tag": "noindex"
-            }
-        }
     ]
 }
