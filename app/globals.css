@@ -468,6 +468,12 @@ header {
   gap: 30px;
 }
 
+.lastmenufot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 .lastmenufot img {
   width: 40px;
 }
