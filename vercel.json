@@ -1,0 +1,28 @@
+{
+    "redirects": [
+        {
+            "source": "/docs",
+            "destination": "https://docs.hyroxsocialclub.com",
+            "permanent": true
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/",
+            "destination": "/app/page.js"
+        },
+        {
+            "source": "/docs/(.*)",
+            "destination": "/docs/dist/$1"
+        }
+    ],
+    "routes": [
+        {
+            "src": "^/docs",
+            "dest": "/docs/dist/index.html",
+            "headers": {
+                "x-robots-tag": "noindex"
+            }
+        }
+    ]
+}
