@@ -12,7 +12,7 @@ const LogViewer = dynamic(() => import('../components/LogViewer'), {
 
 function LogsPage() {
     const router = useRouter();
-    const { auth, isInitialized } = useAuth();
+    const { auth, isInitialized, logout } = useAuth();
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -52,7 +52,6 @@ function LogsPage() {
                     </h1>
                     <button
                         onClick={() => {
-                            const { logout } = useAuth();
                             logout().then(() => router.push('/login'));
                         }}
                         className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"

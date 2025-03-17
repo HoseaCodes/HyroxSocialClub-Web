@@ -86,7 +86,7 @@ export default function WaitlistForm() {
       
       {status === 'success' && (
         <p className="mt-4 text-center text-sm text-gray-600">
-          Check your inbox for a confirmation email! If you don't see it, please check your spam folder.
+          Check your inbox for a confirmation email! If you don&apos;t see it, please check your spam folder.
         </p>
       )}
     </div>
