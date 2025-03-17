@@ -1,59 +1,66 @@
-import clientPromise from '@/lib/mongodb';
+import connectToDatabase from '@/lib/mongodb';
+import User from '@/models/index';
 import { NextResponse } from 'next/server';
 
-export async function POST(request) {
-    try {
-        const client = await clientPromise;
-        const db = client.db('social-club');
-        const collection = db.collection('bodyweight')
-        const { date, weight, goalWeight } = await request.json();
+// Helper function to ensure all MongoDB fields are serializable
+const sanitizeUser = (user) => {
+    if (!user) return null;
 
-        if (!date || !weight || !goalWeight) {
-            return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
-        }
+    // Convert MongoDB document to a plain JS object
+    const userObj = user.toObject();
 
+    // Ensure _id field is a string
+    userObj._id = userObj._id.toString();
 
-        // Upsert (insert or update) the bodyweight entry for the specific date
-        const result = await collection.updateOne(
-            { date },  // Filter by date
-            { $set: { weight, goalWeight } },  // Update weight and goalWeight
-            { upsert: true }  // Insert if not found
-        );
-
-        if (result.modifiedCount > 0 || result.upsertedCount > 0) {
-            return NextResponse.json({ message: 'Data saved successfully' }, { status: 201 });
-        } else {
-            return NextResponse.json({ error: 'Failed to save data' }, { status: 500 });
-        }
-    } catch (error) {
-        console.error('Error in POST request:', error);
-        return NextResponse.json({ error: 'Unable to process the request' }, { status: 500 });
+    // If bodyweight contains dates, ensure they are serializable as well
+    if (userObj.bodyweight) {
+        Object.keys(userObj.bodyweight).forEach((date) => {
+            const data = userObj.bodyweight[date];
+            if (data && data.date) {
+                // Convert date fields to strings if they exist
+                data.date = data.date.toISOString();
+            }
+            // Handle other non-serializable fields if necessary
+        });
     }
-}
 
-// GET request to retrieve bodyweight data for a specific date or all dates
+    return userObj;
+};
+
 export async function GET(request) {
     try {
-        const client = await clientPromise;
-        const db = client.db('social-club');
-        const collection = db.collection('bodyweight')
+        // Establish the database connection
+        await connectToDatabase();
         const { searchParams } = new URL(request.url);
+        const username = searchParams.get('username');
         const date = searchParams.get('date');
 
-        if (date) {
-            // Find the bodyweight data for the specific date
-            const bodyweightData = await collection.findOne({ date });
-
-            if (bodyweightData) {
-                return NextResponse.json(bodyweightData, { status: 200 });
-            } else {
-                return NextResponse.json({ message: 'No data found for this date' }, { status: 404 });
-            }
+        if (!username) {
+            return NextResponse.json({ error: 'Username is required' }, { status: 400 });
         }
 
-        // Retrieve all bodyweight data if no specific date is provided
-        const allData = await collection.find({}).toArray();
-        return NextResponse.json(allData, { status: 200 });
+        // Retrieve bodyweight data for the specific date or all dates
+        const query = { username };
+        if (date) {
+            query[`bodyweight.${date}`] = { $exists: true };  // Check if bodyweight data exists for the specific date
+        }
+
+        const user = await User.findOne(query);
+
+        console.log('user:', user);
+
+        
+        if (user) {
+            return NextResponse.json(user.bodyweight, { status: 200 });
+            // const sanitizedUser = sanitizeUser(user);
+            // if (date) {
+            //     return NextResponse.json({ date, ...user.bodyweight[date] }, { status: 200 });
+            // } else {
+            //     return NextResponse.json(user.bodyweight, { status: 200 });
+            // }
+        } else {
+            return NextResponse.json({ message: 'No data found' }, { status: 404 });
+        }
     } catch (error) {
         console.error('Error in GET request:', error);
         return NextResponse.json({ error: 'Unable to fetch data' }, { status: 500 });

@@ -1,19 +1,27 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./pages/**/*.{js,jsx,ts,tsx}",
-    "./components/**/*.{js,jsx,ts,tsx}",
-    "./app/**/*.{js,jsx,ts,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+
+    // Or if using `src` directory:
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      colors: {
-        'heroku-purple': '#430098',
-        'heroku-light': '#79589F',
-        'heroku-dark': '#1B0038',
+      backgroundImage: {
+        "custom-gradient":
+          "linear-gradient(100.71deg, #F1F4FF 0.64%, #DFE0FF 100%)",
+        "footer-image": "url('/footer.png')",
+        "access-image": "url('/access.png')",
+        "fitness-image": "url('/fitness.png')",
+        "mobile-image": "url('/mobilesection.png')",
+      },
+      backgroundSize: {
+        full: "100% 100%",
       },
     },
   },
   plugins: [],
-}
+};

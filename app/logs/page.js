@@ -1,10 +1,8 @@
-// app/logs/page.js
 'use client';
 
-
-import { useAuth } from '../context/auth-context'; // Import auth context
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation'; // Use the new `next/navigation` package for redirects
+import { useAuth } from '../context/auth-context';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import HerokuControl from '../components/HerokuControl';
 
@@ -13,24 +11,38 @@ const LogViewer = dynamic(() => import('../components/LogViewer'), {
 });
 
 function LogsPage() {
-    const { auth } = useAuth(); // Get the auth state
     const router = useRouter();
+    const { auth, isInitialized } = useAuth();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        console.log(auth);
-        if (auth === false) {
-          // Redirect to the login page if not authenticated
-          router.push('/login');
+        console.log('Logs page mounted, auth state:', { auth, isInitialized });
+        
+        // Handle authentication check once we know the state
+        if (isInitialized) {
+            if (auth === false) {
+                console.log('User not authenticated, redirecting to login');
+                router.push('/login');
+            } else {
+                console.log('User is authenticated, showing logs page');
+                setLoading(false);
+            }
         }
-      }, [auth, router]);
-    
-      if (auth === null) {
-        return <div>Loading...</div>; // Optional loading state while checking auth
-      }
-    
-      if (auth === false) {
-        return null; // Prevent rendering if not authenticated
-      }
+    }, [auth, isInitialized, router]);
+
+    // Show loading spinner while checking auth
+    if (loading || !isInitialized) {
+        return (
+            <div className="min-h-screen flex justify-center items-center bg-gray-100 dark:bg-gray-900">
+                <div className="text-xl text-center dark:text-white">
+                    <div className="mb-4">Loading logs...</div>
+                    <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
+                </div>
+            </div>
+        );
+    }
+
+    // This will only render if authenticated
     return (
         <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,6 +50,15 @@ function LogsPage() {
                     <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
                         Heroku Logs Dashboard
                     </h1>
+                    <button
+                        onClick={() => {
+                            const { logout } = useAuth();
+                            logout().then(() => router.push('/login'));
+                        }}
+                        className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                    >
+                        Logout
+                    </button>
                 </div>
                 <div>
                     <HerokuControl />

@@ -1,8 +1,8 @@
+import React from "react";
+import Home from "./components/landing/index";
 
-import Landing from "./components/Landing";
-
-export default function Home() {
+export default function Page() {
   return (
-    <Landing />
+    <Home />
   );
 }
