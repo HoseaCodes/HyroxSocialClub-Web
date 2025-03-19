@@ -1,5 +1,5 @@
 import NavBar from "@/components/landing/NavBar";
-import { AuthProvider } from "./context/auth-context";
+import { AuthProvider } from "@/context/auth-context";
 import "./globals.css";
 
 export const metadata = {

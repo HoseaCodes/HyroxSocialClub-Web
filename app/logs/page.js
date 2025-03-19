@@ -4,9 +4,9 @@ import { useAuth } from '../context/auth-context';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
-import HerokuControl from '../components/HerokuControl';
+import HerokuControl from '@/components/logs/HerokuControl';
 
-const LogViewer = dynamic(() => import('../components/LogViewer'), {
+const LogViewer = dynamic(() => import('@/components/logs/LogViewer'), {
     ssr: false
 });
 
