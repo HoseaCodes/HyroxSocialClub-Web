@@ -1,6 +1,6 @@
 "use client";
 
-import Privacy from '@/components/legal/privacy';
+import Privacy from '@/components/legal/Privacy';
 import React, { useState } from 'react';
 
 const PrivacyPage = () => {

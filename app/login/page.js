@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; 
 import { useAuth } from '../context/auth-context';
-import Footer from '../components/landing/Footer';
+import Footer from '@/components/landing/Footer';
 
 const LoginPage = () => {
   const router = useRouter();
