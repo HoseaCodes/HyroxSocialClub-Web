@@ -1,4 +1,4 @@
-import NavBar from "./components/landing/NavBar";
+import NavBar from "@/components/landing/NavBar";
 import { AuthProvider } from "./context/auth-context";
 import "./globals.css";
 
@@ -18,8 +18,8 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={`font-helvetica`}>
-        <NavBar />
         <AuthProvider>
+          <NavBar />
           {children}
         </AuthProvider>
       </body>

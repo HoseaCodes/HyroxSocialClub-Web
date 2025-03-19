@@ -10,8 +10,8 @@ const menuItems = [
   { name: "Download", href: "#" },
 ];
 const footerItems = [
-  { name: "Privacy Policy", href: "#" },
-  { name: "Terms of Conditions", href: "#" },
+  { name: "Privacy Policy", href: "/privacy" },
+  { name: "Terms of Conditions", href: "/terms" },
 ];
 const socialItems = [
   { icon: <FaFacebookF />, href: "#" },

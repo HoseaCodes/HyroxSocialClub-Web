@@ -4,11 +4,8 @@ import { Disclosure } from "@headlessui/react";
 import Image from "next/image";
 import { IoMdClose } from "react-icons/io";
 
-import { useState } from "react";
+import { useModal } from "./ModalContext";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 const menuItems = [
   { name: "Home", href: "/" },
@@ -16,7 +13,8 @@ const menuItems = [
   { name: "Download", href: "#" },
 ];
 const NavBar = () => {
-  const [open, setOpen] = useState(false);
+  const { openWaitlistModal } = useModal();
+
   return (
     <Disclosure as="nav" className="bg-white ">
       {({ open }) => (
@@ -54,12 +52,12 @@ const NavBar = () => {
               </div>
               <div className="-mr-2 flex items-center sm:hidden gap-5">
                 <div className=" sm:ml-6 ">
-                  <a
-                    href="/"
+                  <button
+                    onClick={openWaitlistModal}
                     className="font-bold text-black text-[13px] lg:text-xl w-[118px] lg:w-[240px] bg-[#F1F4FF] rounded-2xl h-9 lg:h-14 flex items-center justify-center"
                   >
                     Join Waitlist
-                  </a>
+                  </button>
                 </div>
                 {/* Mobile menu button */}
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-[10px] text-white  bg-[#3B82F6] w-[34px] h-[34px]">
