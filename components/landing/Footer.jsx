@@ -21,7 +21,12 @@ const socialItems = [
 const Footer = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [status, setStatus] = useState('idle'); // idle, loading, success, error
+  const [status, setStatus] = useState('idle');
+  const [snowKey, setSnowKey] = useState(0);
+
+  const regenerateSnow = () => {
+    setSnowKey(prevKey => prevKey + 1);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,7 +55,7 @@ const Footer = () => {
       if (response.ok) {
         setStatus('success');
         setMessage(data.message || 'Successfully joined the waitlist!');
-        setEmail(''); // Clear the input on success
+        setEmail('');
       } else {
         setStatus('error');
         setMessage(data.message || 'Something went wrong. Please try again.');
@@ -63,8 +68,32 @@ const Footer = () => {
     }
   };
   return (
-    <section className="bg-footer-image rounded-[35px] overflow-hidden bg-[#1A1F2E] bg-center bg-full">
-      <div className="max-w-[1300px] mx-auto px-5 sm:px-6 lg:px-8 flex flex-col gap-5 pt-20 justify-center items-center pb-10">
+    <section 
+      className="bg-footer-image rounded-[35px] overflow-hidden bg-[#1A1F2E] bg-center bg-full"
+    >
+      <div className="max-w-[1300px] mx-auto px-5 sm:px-6 lg:px-8 flex flex-col gap-5 pt-20 justify-center items-center pb-10 relative">
+        {/* Snowfall Animation Styles */}
+        <style jsx>{`
+          @keyframes snowfall {
+            0% {
+              transform: translateY(-10px) rotate(0deg);
+              opacity: 0;
+            }
+            20% {
+              opacity: 1;
+            }
+            100% {
+              transform: translateY(60px) rotate(360deg);
+              opacity: 0;
+            }
+          }
+          
+          .animate-snowfall {
+            animation: snowfall linear forwards;
+            animation-iteration-count: 1;
+          }
+        `}</style>
+
         <h2 className="text-white text-[30px] sm:text-[40px] font-bold leading-[45px]">
           PhysiquePro AI
         </h2>
@@ -171,6 +200,36 @@ const Footer = () => {
             </li>
           ))}
         </ul>
+        
+        <div 
+          className="relative group cursor-pointer"
+          onMouseEnter={regenerateSnow}
+        >
+          <p className="text-white text-center text-[11px] sm:text-sm font-normal mt-5 opacity-70">
+            Powered by {""} ❄️{" "}
+            <a className="text-[#14B5B8] hover:text-[#0de8ed] transition-colors duration-300 font-medium" href="https://ambitiousconcept.com/" target="_blank" rel="noopener noreferrer">
+              Ambitious Concepts
+            </a> 
+            {""} ❄️{" "}
+          </p>
+          
+          <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+            <div key={snowKey} className="snowflakes opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {[...Array(20)].map((_, i) => (
+                <div key={i} className="snowflake absolute animate-snowfall" style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 200}%`,
+                  animationDelay: `${Math.random() * 5}s`,
+                  animationDuration: `${3 + Math.random() * 5}s`,
+                  opacity: Math.random(),
+                  fontSize: `${Math.random() * 10 + 8}px`
+                }}>
+                  ❄️
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
